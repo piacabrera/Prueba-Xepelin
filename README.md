@@ -1,15 +1,7 @@
 # Prueba Xepelin
 
 ## Parte 1
-.env debe ser
-```
-PORT = 3000
 
-SHEET_ID = '1JxpYrYFPKVgvCeZfcv511XSE8AwxgnK39lWnHxvhQo4'
-SECRET = 'CLAVE_SECRETA'
-
-EMAIL = 'mariapiacabrera1@gmail.com'
-````
 El link de GSheet es https://docs.google.com/spreadsheets/d/1Fe_s4hD34b9cvNCec1gIVozuOoF5TQ3uNmuerni4H_g/edit?gid=0#gid=0
 
 #### Consideraciones:

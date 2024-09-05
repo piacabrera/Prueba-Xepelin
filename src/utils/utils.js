@@ -136,7 +136,7 @@ async function scrapeBlog(){
 
 async function saveToGoogleSheet(allArticlesData, sheetId, sheetName) {
   const auth = new google.auth.GoogleAuth({
-    keyFile: './postulacion-xepelin-07d0ea36ed8d.json',
+    keyFile: JSON.parse(process.env.GOOGLE_CLOUD_CREDENTIALS),
     scopes: ['https://www.googleapis.com/auth/spreadsheets'],
   });
 
