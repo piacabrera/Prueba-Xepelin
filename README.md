@@ -2,7 +2,7 @@
 
 ## Parte 1
 
-El link de GSheet es https://docs.google.com/spreadsheets/d/1Fe_s4hD34b9cvNCec1gIVozuOoF5TQ3uNmuerni4H_g/edit?gid=0#gid=0
+El link de GSheet es https://docs.google.com/spreadsheets/d/1Fe_s4hD34b9cvNCec1gIVozuOoF5TQ3uNmuerni4H_g
 
 #### Consideraciones:
 - No se crea una base de datos para el login básico, solamente está definido un usuario válido en un diccionario (se pueden agregar y hacer un bdd, pero no implmenté un registro ya que era solo login asi que no pensé que fuera necesario)
