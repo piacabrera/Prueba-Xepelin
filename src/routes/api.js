@@ -39,7 +39,6 @@ router.post('/scrape-by-category-name', async (req, res) => {
   const { category, webhook } = req.body;
 
   try {
-    console.log(category);
     const blogData = await scrapeByCategoryName(category);
     const gsheetLink = await saveToGoogleSheet(blogData, process.env.SHEET_ID, category);
     await axios.post(webhook, {
