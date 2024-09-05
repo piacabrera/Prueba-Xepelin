@@ -5,7 +5,13 @@ const { setTimeout } = require('timers/promises');
 
 async function scrapeBlogArticle(url) {
   console.log(`Scraping article: ${url}`);
-  const browser = await puppeteer.launch({ headless: true });
+  const browser = await puppeteer.launch({ headless: true, 
+    args : ['--no-sandbox', '--disable-setuid-sandbox', '--single-process', '--no-zygote'],
+    executablePath: 
+    process.env.NODE_ENV === 'production' 
+     ? process.env.PUPPETEER_EXECUTABLE_PATH
+     : puppeteer.executablePath(),
+    });
   const page = await browser.newPage();
   await page.goto(url, { waitUntil: 'networkidle0', timeout: 0 });
 
@@ -27,7 +33,13 @@ async function scrapeBlogArticle(url) {
 
 async function scrapeArticleLinks(categoryLink) {
   console.log(`Scraping article links from category: ${categoryLink}`);
-  const browser = await puppeteer.launch({ headless: true });
+  const browser = await puppeteer.launch({ headless: true, 
+    args : ['--no-sandbox', '--disable-setuid-sandbox', '--single-process', '--no-zygote'],
+    executablePath: 
+    process.env.NODE_ENV === 'production' 
+     ? process.env.PUPPETEER_EXECUTABLE_PATH
+     : puppeteer.executablePath(),
+    });
   const page = await browser.newPage();
   await page.goto(`${categoryLink}`, { waitUntil: 'networkidle0', timeout: 0 });
 
@@ -85,7 +97,13 @@ async function scrapeAllArticles(categoryLink, categoryName) {
 
 async function scarpeCategoryTitle(categoryLink) {
   console.log('Scraping category title from link:', categoryLink);
-  const browser = await puppeteer.launch({ headless: true });
+  const browser = await puppeteer.launch({ headless: true, 
+    args : ['--no-sandbox', '--disable-setuid-sandbox', '--single-process', '--no-zygote'],
+    executablePath: 
+    process.env.NODE_ENV === 'production' 
+     ? process.env.PUPPETEER_EXECUTABLE_PATH
+     : puppeteer.executablePath(),
+    });
   const page = await browser.newPage();
   await page.goto(`${categoryLink}`, { waitUntil: 'networkidle0', timeout: 0 });
 
@@ -98,7 +116,13 @@ async function scarpeCategoryTitle(categoryLink) {
 
 async function scrapeCategoryLinks() {
   console.log('Scraping category links');
-  const browser = await puppeteer.launch({ headless: true });
+  const browser = await puppeteer.launch({ headless: true, 
+    args : ['--no-sandbox', '--disable-setuid-sandbox', '--single-process', '--no-zygote'],
+    executablePath: 
+    process.env.NODE_ENV === 'production' 
+     ? process.env.PUPPETEER_EXECUTABLE_PATH
+     : puppeteer.executablePath(),
+    });
   const page = await browser.newPage();
   await page.goto(`https://xepelin.com/blog`, { waitUntil: 'networkidle0', timeout: 0 });
 
