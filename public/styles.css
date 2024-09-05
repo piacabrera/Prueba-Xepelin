@@ -1,0 +1,127 @@
+/* Estilos generales */
+body {
+    font-family: 'Arial', sans-serif;
+    background-color: #f4f7fb;
+    color: #333;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    min-height: 100vh;
+}
+
+/* Estilos del contenedor */
+.login-container {
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    width: 90%;
+    max-width: 400px; /* Limitar el ancho máximo para pantallas grandes */
+    text-align: center;
+    margin: 20px; /* Espacio alrededor en dispositivos móviles */
+}
+
+.sheet-container {
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    width: 90%;
+    max-width: 800px; /* Limitar el ancho máximo para pantallas grandes */
+    text-align: center;
+    margin: 20px; /* Espacio alrededor en dispositivos móviles */
+}
+
+/* Estilos de encabezado */
+h2 {
+    margin-bottom: 20px;
+    color: #1d3a5f;
+    font-size: 1.5em; /* Tamaño relativo para el encabezado */
+}
+
+/* Estilos del formulario */
+form {
+    display: flex;
+    flex-direction: column;
+}
+
+label {
+    margin-bottom: 5px;
+    text-align: left;
+    color: #666;
+    font-size: 0.9em; /* Tamaño relativo */
+}
+
+input[type="text"],
+input[type="password"] {
+    padding: 10px;
+    margin-bottom: 15px;
+    border: 1px solid #d1d5db;
+    border-radius: 4px;
+    font-size: 1em; /* Tamaño relativo */
+    width: 100%; /* Asegura que el campo de entrada tome todo el ancho disponible */
+    box-sizing: border-box; /* Incluye el padding y el borde en el ancho total */
+}
+
+input:focus {
+    border-color: #3b82f6;
+    outline: none;
+}
+
+/* Estilos del botón */
+button {
+    background-color: #3b82f6;
+    color: #fff;
+    padding: 10px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 1em; /* Tamaño relativo */
+    transition: background-color 0.3s;
+    width: 100%; /* Asegura que el botón tome todo el ancho disponible */
+    box-sizing: border-box;
+}
+
+button:hover {
+    background-color: #2563eb;
+}
+
+/* Estilos de enlaces */
+.links {
+    margin-top: 15px;
+    font-size: 0.9em; /* Tamaño relativo */
+}
+
+.links a {
+    color: #3b82f6;
+    text-decoration: none;
+    margin: 0 5px;
+}
+
+.links a:hover {
+    text-decoration: underline;
+}
+
+/* Estilos específicos para iframe en dashboard */
+iframe {
+    width: 100%; /* El iframe tomará todo el ancho del contenedor */
+    height: 60vh; /* Altura relativa a la vista del usuario */
+    border: none;
+    margin-top: 20px;
+    border-radius: 8px; /* Bordes redondeados para una mejor apariencia */
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1); /* Sombra similar al contenedor */
+}
+
+/* Media Queries para adaptabilidad a diferentes pantallas */
+@media (min-width: 768px) {
+    .login-container {
+        padding: 30px;
+        max-width: 500px; /* Ancho máximo para tablets y pantallas medianas */
+    }
+    
+    iframe {
+        height: 70vh; /* Incrementa la altura en pantallas más grandes */
+    }
+}
