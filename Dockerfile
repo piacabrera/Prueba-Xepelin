@@ -10,31 +10,22 @@
 
 # COPY . .
 # CMD ["node", "app.js"]
-# Use an official Node runtime as a parent image
-FROM node:14
 
-# Install necessary packages for adding a new repository
-RUN apt-get update && apt-get install -y wget gnupg2
+FROM ghcr.io/puppeteer/puppeteer:22
 
-# Add Google's package signing key
-RUN wget -q -O - https://dl-ssl.google.com/linux/linux_signing_key.pub | apt-key add -
+USER root
 
-# Add the Google Chrome repository
-RUN echo "deb [arch=amd64] http://dl.google.com/linux/chrome/deb/ stable main" > /etc/apt/sources.list.d/google-chrome.list
+# Add user so we don't need --no-sandbox.
+RUN mkdir -p /home/pptruser/Downloads /app \
+    && chown -R pptruser:pptruser /home/pptruser \
+    && chown -R pptruser:pptruser /app
 
-# Update the package list and install Google Chrome
-RUN apt-get update && apt-get install -y google-chrome-stable
+# Run everything after as non-privileged user.
+USER pptruser
 
-# Clean up
-RUN rm -rf /var/lib/apt/lists/*
+# Install Puppeteer under /node_modules so it's available system-wide
+COPY package*.json /app/
+RUN cd /app/ && npm install
+COPY . /app/
 
-# Set the Chrome executable path environment variable (used by Puppeteer)
-ENV PUPPETEER_EXECUTABLE_PATH /usr/bin/google-chrome-stable
-
-WORKDIR /usr/src/app
-
-COPY package*.json ./
-RUN npm ci
-
-COPY . .
 CMD ["node", "app.js"]
