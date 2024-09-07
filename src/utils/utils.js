@@ -116,7 +116,7 @@ async function scarpeCategoryTitle(categoryLink) {
 
 async function scrapeCategoryLinks() {
   console.log('Scraping category links');
-  const browser = await puppeteer.launch({
+  const browser = await puppeteer.launch({ headless: true, 
     args : ['--no-sandbox', '--disable-setuid-sandbox', '--single-process', '--no-zygote'],
     executablePath: 
     process.env.NODE_ENV === 'production' 
