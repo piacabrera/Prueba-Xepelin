@@ -2,13 +2,17 @@
 const puppeteer = require('puppeteer');
 const { google } = require('googleapis');
 const { setTimeout } = require('timers/promises');
+const locateChrome = require('locate-chrome');
 
 async function scrapeBlogArticle(url) {
+  const executablePath = await new Promise(resolve => locateChrome((arg) => resolve(arg))) || '';
   console.log(`Scraping article: ${url}`);
-  const browser = await puppeteer.launch({headless: true,
-    defaultViewport: null,
-    executablePath: '/usr/bin/google-chrome',
-    });
+  const browser = await puppeteer.launch({
+    executablePath,
+    args: ['--no-sandbox', '--disable-setuid-sandbox'],
+
+});
+
   const page = await browser.newPage();
   await page.goto(url, { waitUntil: 'networkidle0', timeout: 0 });
 
@@ -29,11 +33,14 @@ async function scrapeBlogArticle(url) {
 
 
 async function scrapeArticleLinks(categoryLink) {
+  const executablePath = await new Promise(resolve => locateChrome((arg) => resolve(arg))) || '';
   console.log(`Scraping article links from category: ${categoryLink}`);
-  const browser = await puppeteer.launch({headless: true,
-    defaultViewport: null,
-    executablePath: '/usr/bin/google-chrome',
-    });
+  const browser = await puppeteer.launch({
+    executablePath,
+    args: ['--no-sandbox', '--disable-setuid-sandbox'],
+
+});
+
   const page = await browser.newPage();
   await page.goto(`${categoryLink}`, { waitUntil: 'networkidle0', timeout: 0 });
 
@@ -90,11 +97,14 @@ async function scrapeAllArticles(categoryLink, categoryName) {
 }
 
 async function scarpeCategoryTitle(categoryLink) {
+  const executablePath = await new Promise(resolve => locateChrome((arg) => resolve(arg))) || '';
   console.log('Scraping category title from link:', categoryLink);
-  const browser = await puppeteer.launch({headless: true,
-    defaultViewport: null,
-    executablePath: '/usr/bin/google-chrome',
-    });
+  const browser = await puppeteer.launch({
+    executablePath,
+    args: ['--no-sandbox', '--disable-setuid-sandbox'],
+
+});
+
   const page = await browser.newPage();
   await page.goto(`${categoryLink}`, { waitUntil: 'networkidle0', timeout: 0 });
 
@@ -106,11 +116,14 @@ async function scarpeCategoryTitle(categoryLink) {
 }
 
 async function scrapeCategoryLinks() {
+  const executablePath = await new Promise(resolve => locateChrome((arg) => resolve(arg))) || '';
   console.log('Scraping category links');
-  const browser = await puppeteer.launch({headless: true,
-    defaultViewport: null,
-    executablePath: '/usr/bin/google-chrome',
-    });
+  const browser = await puppeteer.launch({
+    executablePath,
+    args: ['--no-sandbox', '--disable-setuid-sandbox'],
+
+});
+
   const page = await browser.newPage();
   await page.goto(`https://xepelin.com/blog`, { waitUntil: 'networkidle0', timeout: 0 });
 
