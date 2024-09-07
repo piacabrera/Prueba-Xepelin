@@ -15,7 +15,7 @@ El link del deploy es https://prueba-xepelin.onrender.com
 
 La API es la misma, por lo que el .env se mantiene.
 
-El link de GSheet es https://docs.google.com/spreadsheets/d/1JxpYrYFPKVgvCeZfcv511XSE8AwxgnK39lWnHxvhQo4/edit?gid=2027823673#gid=2027823673
+El link de GSheet es https://docs.google.com/spreadsheets/d/1JxpYrYFPKVgvCeZfcv511XSE8AwxgnK39lWnHxvhQo4
 
 El código del scraper está en ```utils.js```, el código de la API es el código completo.
 
